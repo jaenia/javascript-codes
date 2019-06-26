@@ -1,1 +1,3 @@
-# javascript-codes
+# JavaScript Codes
+
+Codes written during JavaScript studies.
