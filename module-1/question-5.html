@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Curso JavaScript</title>
+    </head>
+    <body>
+        <script>
+            function exibeUsuarios(usuarios) {
+                for(const usuario of usuarios) {
+                    console.log(
+                        "O " + usuario.nome + " possui as habilidades: " 
+                        + usuario.habilidades.join(", ")
+                    );
+                }
+            }
+
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["JavaScript", "ReactJS", "Redux"]
+                },
+                {
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+
+            exibeUsuarios(usuarios);
+        </script>
+    </body>
+</html>
