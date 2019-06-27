@@ -34,7 +34,7 @@
                 containerElement.appendChild(squareElement);
 
                 var squares = document.querySelectorAll('.square');
-                for(const square of squares) {
+                for(square of squares) {
                     square.onmouseover = function() {
                         square.style.backgroundColor = getRandomColor();
                     }
