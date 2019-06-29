@@ -9,3 +9,5 @@ Module 1: Introduction.
 Module 2: Manipulating the DOM.
 
 Module 3: Todo app.
+
+Module 4: Asynchronous JS.
