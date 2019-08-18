@@ -2,7 +2,7 @@
 
 Codes written during JavaScript studies.
 
-### Modules of the JavaScript course - Rocketseat
+### Modules of the JavaScript Starter - Rocketseat
 
 Module 1: Introduction.
 
