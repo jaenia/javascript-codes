@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Curso JavaScript</title>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" name="user">
+            <button onclick="listRepositories()">Search</button>
+            <ul></ul>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+        <script>
+            var inputElement = document.querySelector('input[name=user]')
+            var ulElement = document.querySelector('ul')
+
+            function renderRepositories(repositories){
+                ulElement.innerHTML = ""               
+                var liElement
+                var textElement
+                for(repository of repositories){
+                    liElement = document.createElement('li')
+                    textElement = document.createTextNode(repository.name)
+                    liElement.appendChild(textElement)
+                    ulElement.appendChild(liElement)
+                    inputElement.value = ''
+                }
+            }
+
+            function renderLoading(){
+                var loadingElement = document.createElement('li')
+                var textElement = document.createTextNode('Loading...')
+                loadingElement.appendChild(textElement)
+                ulElement.appendChild(loadingElement)
+            }
+
+            function renderError(){
+                ulElement.innerHTML = ""
+                var errorElement = document.createElement('li')
+                var textElement = document.createTextNode('User not found!')
+                errorElement.appendChild(textElement)
+                errorElement.style.color = '#f00'
+                ulElement.appendChild(errorElement)
+            }
+
+            function listRepositories(){  
+                ulElement.innerHTML = ""
+                var user = inputElement.value
+                if(!user) return
+                renderLoading();
+                axios.get('https://api.github.com/users/' + user + '/repos')
+                    .then(function(response){
+                        renderRepositories(response.data)
+                    })
+                    .catch(function(error){
+                        renderError();
+                    }) 
+            }
+        </script>
+    </body>
+</html>

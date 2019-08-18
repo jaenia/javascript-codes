@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Curso JavaScript</title>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" name="user">
+            <button onclick="listRepositories()">Search</button>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+        <script>
+            var inputElement = document.querySelector('input[name=user]')
+
+            function listRepositories(){  
+                var user = inputElement.value
+                if(!user) return
+                axios.get('https://api.github.com/users/' + user + '/repos')
+                    .then(function(response){
+                        renderRepositories(response.data)
+                    })
+                    .catch(function(error){
+                        console.log("User not found")
+                    }) 
+            }
+
+            function renderRepositories(repositories){
+                var ulElement = document.createElement('ul')
+                ulElement.setAttribute('class', 'list-repos')
+                var containerElement = document.querySelector('.container')
+                containerElement.appendChild(ulElement)
+                var liElement;
+                var textElement;
+                for(repository of repositories){
+                    liElement = document.createElement('li')
+                    textElement = document.createTextNode(repository.name)
+                    liElement.appendChild(textElement)
+                    ulElement.appendChild(liElement)
+                    inputElement.value = ''
+                }
+            }
+        </script>
+    </body>
+</html>
