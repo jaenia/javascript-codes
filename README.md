@@ -17,5 +17,5 @@ Module 4: Asynchronous JS.
 Concepts, webpack server and async/await.
 
 ## search-github-repos
-![Demo image](./demo.png)
 A simple GitHub repository search app.
+![Demo image](./search-github-repos/demo.png)
