@@ -1,4 +1,4 @@
-# JavaScript Codes - teste
+# JavaScript Codes - teste 2
 
 Codes written during JavaScript studies.
 
